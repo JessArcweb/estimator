@@ -1,6 +1,7 @@
-//'use strict';
+//use 'strict';
+
 App.controller('MainCtrl', [
-	'$scope', function($scope, $http) {
+	'$scope', 'Users', function($scope, Users) {
 
 		$scope.questions = [
 			{ 'body': 'What kind of app do you want to build?',
@@ -47,20 +48,11 @@ App.controller('MainCtrl', [
 			$scope.yourEstimate = $scope.yourEstimate + estimate.toString();
 		};
 
-		$scope.addUser = function() {
-			$http.post('/addUser', $scope.user).success(function(res) {
-				if (res === "Internal Error") {
-					$scope.emptyForm = true;
-				} else {
-					console.log('success');
-					$scope.showForm = false;
-					$scope.infoSubmitted = true;
-					$scope.evalEstimate($scope.answerVals);
-				}
-			}).error(function(err){
-				console.log('failure');
-				console.log(err);
-			});
-
+		$scope.submitUser = function() {
+			Users.save($scope.user);
+			$scope.evalEstimate($scope.answerVals);
+			$scope.infoSubmitted = true;
+			$scope.showForm = false;
 		};
-	}]);
+
+}]);
