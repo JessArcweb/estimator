@@ -24,7 +24,7 @@
 								<input type="text" name="username" class="form-control" ng-model="user.name" placeholder="Name" required>
 								<p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Your name is required</p>
 								<input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email" required>
-								<p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Email is invalid</p>
+								<!-- <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Email is invalid</p> -->
 							</div>
 						</div>
 						<br/>
@@ -38,8 +38,8 @@
 			<br/>
 			<div class="row" ng-show="infoSubmitted">
 				<h3>{{yourEstimate}}</h3>
-				<form action="/#">
-					<button type="submit" class="btn btn-secondary">Reload</button>
+				<form action="/">
+					<button type="submit" class="btn btn-primary">Reload</button>
 				</form>
 			</div>
 		</div>
