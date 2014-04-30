@@ -1,0 +1,41 @@
+<div ng-controller="MainCtrl">
+	<div class="container">
+		<div class="col-lg-8">
+			<div class="jumbotron">
+				<h1>Arcweb Estimator</h1>
+			</div>
+			<div class="container" ng-hide="finished">
+				<h2>{{question}}</h2>
+				<ul>
+					<li ng-repeat="(choice, value) in questions[qCounter].choices">
+						<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+							value="{{value}}" name="answer"> {{choice}} <br/>
+					</li>
+				</ul>
+			</div>
+			<div class="container" ng-show="showForm">
+					<h3>Give Us Your Contact Info To See Your Quote!</h3>
+					<span ng-show="emptyForm">Name and email fields must be filled out</span>
+					<form class="simple-form">
+						<div class="row">
+							<div class="col-lg-5">
+								<input type="text" class="form-control" ng-model="user.name" placeholder="Name"/>
+								<input type="email" class="form-control" ng-model="user.email" placeholder="Email"/>
+							</div>
+						</div>
+						<br/>
+						<div class="row">
+							<div class="col-lg-3">
+								<button class="btn" ng-click="addUser()">Save</button>
+							</div>
+						</div>
+					</form>
+			</div>
+			<br/>
+			<div class="row" ng-show="infoSubmitted">
+				<h3>{{yourEstimate}}</h3>
+				<a href="#">Reload</a>
+			</div>
+		</div>
+	</div>
+</div>
