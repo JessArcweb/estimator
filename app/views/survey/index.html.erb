@@ -16,17 +16,21 @@
 			<div class="container" ng-show="showForm">
 					<h3>Give Us Your Contact Info To See Your Quote!</h3>
 					<span ng-show="emptyForm">Name and email fields must be filled out</span>
-					<form class="simple form">
+
+					<form name="userForm" ng-submit="submitUser(userForm.$valid)" novalidate class="simple form">
+
 						<div class="row">
 							<div class="col-lg-5">
-								<input type="text" class="form-control" ng-model="user.name" placeholder="Name"/>
-								<input type="email" class="form-control" ng-model="user.email" placeholder="Email"/>
+								<input type="text" name="username" class="form-control" ng-model="user.name" placeholder="Name" required>
+								<p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Your name is required</p>
+								<input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email" required>
+								<p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Email is invalid</p>
 							</div>
 						</div>
 						<br/>
 						<div class="row">
 							<div class="col-lg-3">
-								<button class="btn" ng-click="submitUser()">Save</button>
+								<button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Save</button>
 							</div>
 						</div>
 					</form>
@@ -35,7 +39,7 @@
 			<div class="row" ng-show="infoSubmitted">
 				<h3>{{yourEstimate}}</h3>
 				<form action="/#">
-					<input type="submit" value="Reload">
+					<button type="submit" class="btn btn-secondary">Reload</button>
 				</form>
 			</div>
 		</div>
