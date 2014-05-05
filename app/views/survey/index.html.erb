@@ -16,9 +16,7 @@
 			<div class="container" ng-show="showForm">
 					<h3>Give Us Your Contact Info To See Your Quote!</h3>
 					<span ng-show="emptyForm">Name and email fields must be filled out</span>
-
 					<form name="userForm" ng-submit="submitUser(userForm.$valid)" novalidate class="simple form">
-
 						<div class="row">
 							<div class="col-lg-5">
 								<input type="text" name="username" class="form-control" ng-model="user.name" placeholder="Name" required>
