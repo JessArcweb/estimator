@@ -11,7 +11,7 @@ App.controller('MainCtrl', [
 			{ 'body': 'What is your timeframe?',
 				'choices': { '3 months': 10000, '4 months': 20000, '5 months': 30000 } },
 			{ 'body': 'Which devices will support your app?',
-				'choices': { 'Phone': 0, 'Tablet': 0, 'Both': 0 } },
+				'choices': { 'Both': 0, 'Phone': 0, 'Tablet': 0 } },
 			{ 'body': 'Will your app work offline?',
 				'choices': { 'Yes': 0, 'No': 0 } },
 			{ 'body': 'Will your app support credit card payment?',
