@@ -22,26 +22,29 @@ App.controller('MainCtrl', [
 				'choices': { '1-3': 0, '3+': 0, 'None': 0 } }
 		];
 
-		$scope.answerVals = [];
-		$scope.yourEstimate = 'Your quote is: $';
-
-		$scope.begin = function() {
-				$scope.home = false;
-				$scope.survey = true;
-				$scope.qCounter = 0;
-				$scope.question = $scope.questions[$scope.qCounter].body;
-		};
-
 		$scope.user = {
 			name: '',
 			email: ''
 		};
 
 		// Variables determining shown content
+		$scope.home = true;
+		$scope.survey = false;
 		$scope.infoSubmitted = false;
 		$scope.showForm = false;
 		$scope.finished  = false;
 		$scope.emptyForm = false;
+
+		$scope.begin = function() {
+				$scope.home = false;
+				$scope.survey = true;
+				$scope.qCounter = 0;
+				$scope.question = $scope.questions[$scope.qCounter].body;
+				$scope.answerVals = [];
+				$scope.yourEstimate = 'Your quote is: $';
+		};
+
+
 
 		$scope.next = function() {
 			if ($scope.qCounter < $scope.questions.length-1) {
@@ -50,7 +53,6 @@ App.controller('MainCtrl', [
 			} else {
 				$scope.finished = true;
 				$scope.showForm = true;
-				//$scope.evalEstimate($scope.answerVals);
 			}
 		};
 
