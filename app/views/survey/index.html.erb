@@ -105,8 +105,10 @@
 			<div class="row" ng-show="infoSubmitted">
 				<h3>{{yourEstimate}}</h3>
 				<ul>
-					<li ng-repeat="question in questions">
-					<strong>{{question.body}}:</strong>
+					<li ng-repeat="question in questions track by $index">
+						<h4>{{question.body}}: {{answerVals[$index]}}</h4>
+						${{questions[$index].choices[answerVals[$index]]}}
+						<hr>
 					</li>
 				</ul>
 				<form action="/">
