@@ -24,7 +24,8 @@ App.controller('MainCtrl', [
 
 		$scope.user = {
 			name: '',
-			email: ''
+			email: '',
+			answers: []
 		};
 
 		// Variables determining shown content
@@ -40,7 +41,6 @@ App.controller('MainCtrl', [
 				$scope.survey = true;
 				$scope.qCounter = 0;
 				$scope.question = $scope.questions[$scope.qCounter].body;
-				$scope.answerVals = [];
 				$scope.yourEstimate = 'Your quote is: $';
 		};
 
@@ -66,8 +66,9 @@ App.controller('MainCtrl', [
 		};
 
 		$scope.submitUser = function() {
+			console.log("Answers: " + $scope.user.answers);
 			Users.save($scope.user);
-			$scope.evalEstimate($scope.answerVals);
+			$scope.evalEstimate($scope.user.answers);
 			$scope.infoSubmitted = true;
 			$scope.showForm = false;
 		};

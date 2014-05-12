@@ -1,5 +1,6 @@
 <div ng-controller="MainCtrl">
 	<div class="container">
+    {{user.answers}}
 			<div class="jumbotron">
 				<h1>Arcweb Mobile App Estimator</h1>
 			</div>
@@ -12,7 +13,7 @@
 						<h2>What kind of app do you want to build?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -21,7 +22,7 @@
 						<h2>Have you already started development?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -30,7 +31,7 @@
 						<h2>What is your timeframe?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -39,7 +40,7 @@
 						<h2>Which devices will support your app?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -48,7 +49,7 @@
 						<h2>Will your app work offline?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -57,7 +58,7 @@
 						<h2>Will your app support credit card payment?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -66,7 +67,7 @@
 						<h2>How will users sign in?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -75,7 +76,7 @@
 						<h2>How many third party APIs will your app use?</h2>
 						<ul>
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="answerVals[qCounter]" ng-change="next()" \
+								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
 							</li>
 						</ul>
@@ -106,8 +107,8 @@
 				<h3>{{yourEstimate}}</h3>
 				<ul>
 					<li ng-repeat="question in questions track by $index">
-						<h4>{{question.body}}: {{answerVals[$index]}}</h4>
-						${{questions[$index].choices[answerVals[$index]]}}
+						<h4>{{question.body}}: {{user.answers[$index]}}</h4>
+						${{questions[$index].choices[user.answers[$index]]}}
 						<hr>
 					</li>
 				</ul>

@@ -42,3 +42,7 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 
 ruby "2.1.1"
+
+group :development, :test do
+		gem 'rspec-rails'
+end
