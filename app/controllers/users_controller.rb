@@ -9,9 +9,9 @@ class UsersController < ApplicationController
 	end
 
 	def create
-    logger.debug "params: " + params.to_s
 		@user = User.new(user_params)
 		if @user.save
+      NotifyMailer.notify(@user).deliver
 			redirect_to root_url
 		else
 			redirect_to "#"
