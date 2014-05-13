@@ -10,7 +10,7 @@
 			<div class="row" ng-show="survey" ng-hide="finished">
 					<div class="col-lg-12" ng-show="qCounter===0" ng-hide="qCounter!=0">
 						<h2>What kind of app do you want to build?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -19,7 +19,7 @@
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===1" ng-hide="qCounter!=1">
 						<h2>Have you already started development?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -28,7 +28,7 @@
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===2" ng-hide="qCounter!=2">
 						<h2>What is your timeframe?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -37,7 +37,7 @@
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===3" ng-hide="qCounter!=3">
 						<h2>Which devices will support your app?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -46,7 +46,7 @@
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===4" ng-hide="qCounter!=4">
 						<h2>Will your app work offline?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -55,7 +55,7 @@
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===5" ng-hide="qCounter!=5">
 						<h2>Will your app support credit card payment?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -64,7 +64,7 @@
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===6" ng-hide="qCounter!=6">
 						<h2>How will users sign in?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -73,7 +73,7 @@
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===7" ng-hide="qCounter!=7">
 						<h2>How many third party APIs will your app use?</h2>
-						<ul>
+						<ul class="choice-list">
 							<li ng-repeat="(choice, value) in questions[qCounter].choices">
 								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
 									value="{{choice}}" name="answer"> {{choice}} <br/>
@@ -104,7 +104,7 @@
 			<br/>
 			<div class="row" ng-show="infoSubmitted">
 				<h3>{{yourEstimate}}</h3>
-				<ul>
+				<ul class="choice-list">
 					<li ng-repeat="question in questions track by $index">
 						<h4>{{question.body}}: {{user.answers[$index]}}</h4>
 						${{questions[$index].choices[user.answers[$index]]}}

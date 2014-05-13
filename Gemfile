@@ -46,3 +46,5 @@ ruby "2.1.1"
 group :development, :test do
 		gem 'rspec-rails'
 end
+
+gem 'simplecov'

@@ -22,6 +22,6 @@ describe User do
   end
 
   it "can be saved successfully" do
-    User.create(:name => "test_name", :email => "test_email").should be_persisted
+    User.create(:name => "test_name", :email => "test_email@test.com").should be_persisted
   end
 end

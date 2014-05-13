@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ul.choice-list {
+		list-style-type: none;
+}
