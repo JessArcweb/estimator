@@ -39,7 +39,9 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 # Added as a recommendation of Heroku
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+end
 
 ruby "2.1.1"
 
