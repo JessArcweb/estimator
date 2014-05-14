@@ -20,7 +20,7 @@ body {
 
 div.jumbotron {
 		background: #4b8eeb;
-		background-image: image-url('logo.png');
+		background-image: asset-data-url('logo.png');
 		background-position: 90%;
 		background-repeat: no-repeat;
 		color: white;
