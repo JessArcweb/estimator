@@ -1,8 +1,10 @@
 <div ng-controller="MainCtrl">
 	<div class="container">
-			<div class="jumbotron col-md-10">
-				<h1>Arcweb Mobile App Estimator</h1>
-			</div>
+    <div class="row">
+      <div class="jumbotron col-md-10">
+        <h1>Arcweb Mobile App Estimator</h1>
+      </div>
+    </div>
 		<div class="col-lg-8">
 			<div class="row" ng-show="home" ng-hide="survey">
         <p class="hook">
@@ -126,14 +128,15 @@
 			</div>
 			<br/>
 			<div class="row" ng-show="infoSubmitted">
-				<h3>{{yourEstimate}}</h3>
+				<h3 class="estimate">{{yourEstimate}}</h3>
+        <!--
 				<ul class="choice-list">
 					<li ng-repeat="question in questions track by $index">
-						<h4>{{question.body}}: {{user.answers[$index]}}</h4>
-						${{questions[$index].choices[user.answers[$index]]}}
-						<hr>
+          <div class="answer string">{{question.body}}: {{user.answers[$index]}}</div>
+          <div class="answer number">${{questions[$index].choices[user.answers[$index]]}}</div>
 					</li>
 				</ul>
+        -->
 				<form action="/">
 					<button type="submit" class="btn btn-primary">Reload</button>
 				</form>

@@ -24,6 +24,9 @@ div.jumbotron {
 		background-position: 90%;
 		background-repeat: no-repeat;
 		color: white;
+		display: block;
+		float: left;
+		clear: right;
 		font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -53,4 +56,13 @@ ul li {
 div.userForm {
 		color: black;
 		padding: 20px;
+}
+
+h3 {
+		display: block;
+
+		.estimate {
+				color: black;
+				font-family: 'Raleway', sans-serif;
+		}
 }
