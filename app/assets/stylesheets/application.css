@@ -14,6 +14,43 @@
  *= require_self
  */
 
+body {
+		background: white;
+}
+
+div.jumbotron {
+		background: #4b8eeb;
+		background-image: url('logo.png');
+		background-position: 90%;
+		background-repeat: no-repeat;
+		color: white;
+		font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h2 {
+		font-family: 'Raleway', sans-serif;
+}
+
+div.question {
+		color: black;
+		padding: 20px;
+}
+
+p.hook {
+		color: black;
+		font-family: 'Raleway', sans-serif;
+}
+
 ul.choice-list {
 		list-style-type: none;
+}
+
+ul li {
+		color: black;
+		font-family: 'Raleway', sans-serif;
+}
+
+div.userForm {
+		color: black;
+		padding: 20px;
 }

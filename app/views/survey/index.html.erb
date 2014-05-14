@@ -1,105 +1,128 @@
 <div ng-controller="MainCtrl">
 	<div class="container">
-			<div class="jumbotron">
+			<div class="jumbotron col-md-10">
 				<h1>Arcweb Mobile App Estimator</h1>
 			</div>
 		<div class="col-lg-8">
 			<div class="row" ng-show="home" ng-hide="survey">
-					<button class="btn btn-primary" ng-click="begin()">Get Started</button>
+        <p class="hook">
+          Have an idea for an app?<br/>
+          Want to get the ball rolling on development?<br/>
+          Take our survey so we can start a conversation.
+        </p>
+				<button class="btn btn-primary" ng-click="begin()">Get Started</button>
 			</div>
 			<div class="row" ng-show="survey" ng-hide="finished">
 					<div class="col-lg-12" ng-show="qCounter===0" ng-hide="qCounter!=0">
-						<h2>What kind of app do you want to build?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>What kind of app do you want to build?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===1" ng-hide="qCounter!=1">
-						<h2>Have you already started development?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>Have you already started development?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===2" ng-hide="qCounter!=2">
-						<h2>What is your timeframe?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>What is your timeframe?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===3" ng-hide="qCounter!=3">
-						<h2>Which devices will support your app?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>Which devices will support your app?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===4" ng-hide="qCounter!=4">
-						<h2>Will your app work offline?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>Will your app work offline?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===5" ng-hide="qCounter!=5">
-						<h2>Will your app support credit card payment?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>Will your app support credit card payment?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===6" ng-hide="qCounter!=6">
-						<h2>How will users sign in?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>How will users sign in?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 					<div class="col-lg-12" ng-show="qCounter===7" ng-hide="qCounter!=7">
-						<h2>How many third party APIs will your app use?</h2>
-						<ul class="choice-list">
-							<li ng-repeat="(choice, value) in questions[qCounter].choices">
-								<input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
-									value="{{choice}}" name="answer"> {{choice}} <br/>
-							</li>
-						</ul>
+            <div class="question">
+              <h2>How many third party APIs will your app use?</h2>
+              <ul class="choice-list">
+                <li ng-repeat="(choice, value) in questions[qCounter].choices">
+                  <input type="radio" ng-model="user.answers[qCounter]" ng-change="next()" \
+                    value="{{choice}}" name="answer"> {{choice}} <br/>
+                </li>
+              </ul>
+            </div>
 					</div>
 				</div>
 			<div class="container" ng-show="showForm">
-					<h3>Give Us Your Contact Info To See Your Quote!</h3>
-					<span ng-show="emptyForm">Name and email fields must be filled out</span>
-					<form name="userForm" ng-submit="submitUser(userForm.$valid)" novalidate class="simple form">
-						<div class="row">
-							<div class="col-lg-5">
-								<input type="text" name="username" class="form-control" ng-model="user.name" placeholder="Name" required>
-								<p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Your name is required</p>
-								<input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email" required>
-								<!-- <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Email is invalid</p> -->
-							</div>
-						</div>
-						<br/>
-						<div class="row">
-							<div class="col-lg-3">
-								<button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Save</button>
-							</div>
-						</div>
-					</form>
+          <div class="userForm">
+            <h3>Give Us Your Contact Info To See Your Quote!</h3>
+            <span ng-show="emptyForm">Name and email fields must be filled out</span>
+            <form name="userForm" ng-submit="submitUser(userForm.$valid)" novalidate class="simple form">
+              <div class="row">
+                <div class="col-lg-5">
+                  <input type="text" name="username" class="form-control" ng-model="user.name" placeholder="Name" required>
+                  <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Your name is required</p>
+                  <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email" required>
+                  <!-- <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Email is invalid</p> -->
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-lg-3">
+                  <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
 			</div>
 			<br/>
 			<div class="row" ng-show="infoSubmitted">

@@ -48,3 +48,5 @@ group :development, :test do
 end
 
 gem 'simplecov'
+
+gem 'roadie'
