@@ -18,8 +18,21 @@ body {
 		background: white;
 }
 
+h2 {
+		font: 25px 'Helvetica', sans-serif;
+}
+
+h3 {
+		display: block;
+		color: black;
+		font: 25px 'Helvetica', sans-serif;
+
+		.estimate {
+		}
+}
+
 div.jumbotron {
-		background: #4b8eeb;
+		background: #4b8eeb;;
 		background-image: url(image_path('logo.png'));
 		background-position: 90%;
 		background-repeat: no-repeat;
@@ -28,20 +41,19 @@ div.jumbotron {
 		float: left;
 		clear: right;
 		font-family: 'Open Sans Condensed', sans-serif;
+		width: 100%;
 }
 
-h2 {
-		font-family: 'Raleway', sans-serif;
-}
 
 div.question {
 		color: black;
 		padding: 20px;
+		background: white;;
 }
 
 p.hook {
 		color: black;
-		font-family: 'Raleway', sans-serif;
+		font-family: 'Helvetica', sans-serif;
 }
 
 ul.choice-list {
@@ -50,7 +62,7 @@ ul.choice-list {
 
 ul li {
 		color: black;
-		font-family: 'Raleway', sans-serif;
+		font-family: 'Helvetica', sans-serif;
 }
 
 div.userForm {
@@ -58,11 +70,6 @@ div.userForm {
 		padding: 20px;
 }
 
-h3 {
-		display: block;
-
-		.estimate {
-				color: black;
-				font-family: 'Raleway', sans-serif;
-		}
+form.nav-form {
+		display: inline-block;
 }

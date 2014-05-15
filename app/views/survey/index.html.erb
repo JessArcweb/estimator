@@ -1,7 +1,7 @@
 <div ng-controller="MainCtrl">
 	<div class="container">
     <div class="row">
-      <div class="jumbotron col-md-10">
+      <div class="jumbotron">
         <h1>Arcweb Mobile App Estimator</h1>
       </div>
     </div>
@@ -136,10 +136,13 @@
           <div class="answer number">${{questions[$index].choices[user.answers[$index]]}}</div>
 					</li>
 				</ul>
-        -->
-				<form action="/">
+				<form class="nav-form" action="/">
 					<button type="submit" class="btn btn-primary">Reload</button>
 				</form>
+        -->
+        <form class="nav-form" action="http://www.arcweb.co">
+          <button type="submit" class="btn btn-primary">Visit Our Site</button>
+        </form>
 				<br/>
 			</div>
 		</div>
