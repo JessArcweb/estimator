@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-      NotifyMailer.notify(@user).deliver
-			redirect_to root_url
+          NotifyMailer.notify(@user).deliver
+		  redirect_to root_url
 		else
 			redirect_to "#"
 		end
