@@ -10,8 +10,9 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		if @user.save
-          NotifyMailer.notify(@user).deliver
+		if @user.save and @user.report
+          #NotifyMailer.notify(@user).deliver
+          NotifyMailer.report(@user).deliver
 		  redirect_to root_url
 		else
 			redirect_to "#"
@@ -21,6 +22,6 @@ class UsersController < ApplicationController
 	private
 
 		def user_params
-			params.require(:user).permit(:name, :email, :answers => [])
+			params.require(:user).permit(:name, :email, :newsletter, :report, :estimate, :answers => [])
 		end
 end

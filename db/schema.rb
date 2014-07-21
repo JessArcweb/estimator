@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512192351) do
+ActiveRecord::Schema.define(version: 20140721142314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "project_data", force: true do |t|
+    t.string   "since"
+    t.string   "until"
+    t.string   "name"
+    t.string   "project_id"
+    t.string   "billed_in_range"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "total_billed"
+    t.string   "pivotal_id"
+    t.string   "stories",         default: [], array: true
+  end
+
+  create_table "stories", force: true do |t|
+    t.string   "story_id"
+    t.string   "name"
+    t.string   "estimate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -22,6 +43,9 @@ ActiveRecord::Schema.define(version: 20140512192351) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "answers",    default: [], array: true
+    t.boolean  "newsletter"
+    t.boolean  "report"
+    t.string   "estimate"
   end
 
 end

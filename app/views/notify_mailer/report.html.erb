@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cost Breakdown Report</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Estimated Cost: <%= number_to_currency(@user.estimate) %></h2>
+
+    <span><strong>Cost Breakdown</strong></span><br />
+    <div class="col-md-6">
+      <ul>
+        <% @user.answers.each_with_index do |a, i| %>
+          <li><span class="question"><%= @questions[i]["body"] %>:</span>
+        <span class="answer"><strong>  <%= a %></strong></span>
+        <span class="answer-value"><%= number_to_currency(@questions[i]["choices"][a], :precision => 0) %></span></li>
+        <br />
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
