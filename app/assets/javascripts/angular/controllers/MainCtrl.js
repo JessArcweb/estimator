@@ -54,21 +54,25 @@ App.controller('MainCtrl', [
 				$scope.showProgress = true;
 		};
 
-		$scope.next = function() {
+
+		updateProgressBar = function() {
 			var modwidth = 800 / $scope.questions.length;
+			$('.progress-number').css('left', function() {
+				return parseInt($(this).css('left')) + modwidth;
+			});
+			$('.progress-bar').css('width', function() {
+				return parseInt($('.progress-number').css('left').replace(/px/, "")) + 20 + "px";
+			});
+		}
+
+		$scope.next = function() {
 			if ($scope.qCounter < $scope.questions.length-1) {
 				if ($scope.qCounter > 1) {
 					$scope.evalEstimate($scope.user.answers);
 				}
 				$scope.qCounter += 1;
 				$scope.question = $scope.questions[$scope.qCounter].body;
-				$('.progress-bar').css('width', function() {
-					var current_width = $(this).width() 
-					return current_width + modwidth;
-				});
-				$('.progress-number').css('left', function() {
-					return parseInt($(this).css('left')) + modwidth;
-				});
+				updateProgressBar();
 			} else {
 				$scope.qCounter += 1;
 				$scope.finished = true;
