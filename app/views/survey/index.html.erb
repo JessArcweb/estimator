@@ -140,8 +140,8 @@
           <form name="userForm" ng-submit="submitUser()" novalidate class="simple form">
             <div class="row">
               <div class="col-lg-5">
-                <input type="text" name="username" class="form-control" ng-model="user.name" placeholder="Name">
-                <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email">
+                <input type="text" name="username" required class="form-control" ng-model="user.name" placeholder="Name">
+                <input type="email" name="email" required class="form-control" ng-model="user.email" placeholder="Email">
               </div>
             </div>
             <br/>
@@ -153,7 +153,7 @@
             </div>
             <br />
             <div class="row">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" ng-disabled="userForm.username.$error.required || userForm.email.$error.email || userForm.email.$error.required" class="btn btn-primary">Submit</button>
             </div>
           </form>
         </div>
