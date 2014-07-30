@@ -65,7 +65,9 @@ App.controller('MainCtrl', [
 			});
 		}
 
-		$scope.next = function() {
+		$scope.next = function(choice) {
+			$scope.user.answers[$scope.qCounter] = choice;
+			console.log($scope.user.answers);
 			if ($scope.qCounter < $scope.questions.length-1) {
 				if ($scope.qCounter > 1) {
 					$scope.evalEstimate($scope.user.answers);
