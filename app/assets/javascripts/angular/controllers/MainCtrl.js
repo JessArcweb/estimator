@@ -56,7 +56,7 @@ App.controller('MainCtrl', [
 
 
 		updateProgressBar = function() {
-			var modwidth = 600 / $scope.questions.length;
+			var modwidth = 800 / $scope.questions.length;
 			$('.progress-number').css('left', function() {
 				return parseInt($(this).css('left')) + modwidth;
 			});
@@ -80,8 +80,8 @@ App.controller('MainCtrl', [
 				$scope.finished = true;
 				$scope.showForm = true;
 				$scope.evalEstimate($scope.user.answers);
-				$('.progress-bar').css('width', '600px');
-				$('.progress-number').css('left', '580px');
+				$('.progress-bar').css('width', '800px');
+				$('.progress-number').css('left', '780px');
 			}
 		};
 
