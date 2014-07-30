@@ -21,7 +21,7 @@
       <div class="row" ng-show="survey" ng-hide="finished">
         <div class="col-md-6" ng-show="qCounter===0" ng-hide="qCounter!=0">
           <div class="question">
-            <h4>How many platforms (iOS, Android, Mobile Web)?</h4>
+            <h4 class="h4-mobile">How many platforms (iOS, Android, Mobile Web)?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===1" ng-hide="qCounter!=1">
           <div class="question">
-            <h4>Will your app need photo library access?</h4>
+            <h4 class="h4-mobile">Will your app need photo library access?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -43,7 +43,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===2" ng-hide="qCounter!=2">
           <div class="question">
-            <h4>Will your app need GPS access?</h4>
+            <h4 class="h4-mobile">Will your app need GPS access?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===3" ng-hide="qCounter!=3">
           <div class="question">
-            <h4>Will your app integrate a legacy system?</h4>
+            <h4 class="h4-mobile">Will your app integrate a legacy system?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -65,7 +65,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===4" ng-hide="qCounter!=4">
           <div class="question">
-            <h4>What level of security will your app have?</h4>
+            <h4 class="h4-mobile">What level of security will your app have?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -76,7 +76,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===5" ng-hide="qCounter!=5">
           <div class="question">
-            <h4>Will your app support credit card payment?</h4>
+            <h4 class="h4-mobile">Will your app support credit card payment?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -87,7 +87,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===6" ng-hide="qCounter!=6">
           <div class="question">
-            <h4>Will your app integrate SalesForce CRM?</h4>
+            <h4 class="h4-mobile">Will your app integrate SalesForce CRM?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -98,7 +98,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===7" ng-hide="qCounter!=7">
           <div class="question">
-            <h4>Will your app function offline?</h4>
+            <h4 class="h4-mobile">Will your app function offline?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -109,7 +109,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===8" ng-hide="qCounter!=8">
           <div class="question">
-            <h4>How many ways will users be able to sign in (Twitter, Facebook, LinkedIn, Google)?</h4>
+            <h4 class="h4-mobile">How many ways will users be able to sign in (Twitter, Facebook, LinkedIn, Google)?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -120,7 +120,7 @@
         </div>
         <div class="col-md-6" ng-show="qCounter===9" ng-hide="qCounter!=9">
           <div class="question">
-            <h4>Will your app support an MVP or polished design?</h4>
+            <h4 class="h4-mobile">Will your app support an MVP or polished design?</h4>
             <ul class="choice-list">
               <li ng-repeat="(choice, value) in questions[qCounter].choices">
               <input type="submit" class="choice-mobile"  ng-model="user.answers[qCounter]" ng-click="next(choice)" \
@@ -132,7 +132,7 @@
       </div>
       <div class="row">
         <div class="col-md-6 pull-left" ng-show="qCounter > 2">
-          <h4 class="estimate">Your quote is: ${{user.estimate | number:0}}</h4>
+          <h4 class="h4-mobile estimate">Your quote is: ${{user.estimate | number:0}}</h4>
         </div>
       </div>
       <div class="row" ng-show="showForm">
