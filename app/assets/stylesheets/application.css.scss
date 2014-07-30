@@ -179,8 +179,8 @@ button.btn.btn-primary.mobile {
 
 div.progress-number.mobile {
 	background: #33ADDE;
-	width: 75px;
-	height: 50px;
+	width: 100px;
+	height: 70px;
 	text-align: center;
 	position: relative;
 	left: -20px;
@@ -206,4 +206,17 @@ div.progress-number.mobile:after {
 	top: 19px;
 	border: 4px solid;
 	border-color: #33ADDE #33ADDE transparent transparent;
+}
+
+div.full-progress-bar.mobile {
+	display: inline-block;
+	position: relative;
+	height: 15px;
+	background: #888888;
+	width: 800px;
+}
+
+div.progress-bar.mobile {
+	height: 15px;
+	background: #091596;
 }
