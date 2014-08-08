@@ -4,7 +4,7 @@ ActionMailer::Base.smtp_settings = {
   :ports => 587,
   :domain => "arcwebtech.com",
   :user_name => "mroll@arcwebtech.com",
-  :password => "arcwebpa55",
+  :password => "X2UGdfXF9cCpeGFtdUkUXxw",
   :authentication => "plain",
   :enable_starttls_auto => true
 }
