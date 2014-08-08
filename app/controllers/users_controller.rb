@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		if @user.save and @user.report
+		if @user.save and params[:report] == "true"
           #NotifyMailer.notify(@user).deliver
           NotifyMailer.report(@user).deliver
 		  redirect_to root_url
