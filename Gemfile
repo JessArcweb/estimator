@@ -52,3 +52,5 @@ end
 gem 'simplecov'
 
 gem 'roadie'
+
+gem 'nested_form'

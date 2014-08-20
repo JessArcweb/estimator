@@ -1,10 +1,22 @@
 //use 'strict';
 
 App.controller('MainCtrl', [
-	'$scope', 'Users', function($scope, Users) {
+	'$scope', '$location', '$http', 'Users', function($scope, $location, $http, Users) {
+
+		loadQuestions = function() {
+			$http.get('./questions.json').success(function(data) {
+				console.log("hello");
+				console.log(data);
+				$scope.questions = data;
+			}).error(function() {
+				console.log('failure');
+			});
+		};
+
+		loadQuestions();
 
 		$scope.questions = [
-			{ 'body': 'How many platforms (iOS, Android, Mobile Web)?',
+    		{ 'body': 'How many platforms (iOS, Android, Mobile Web)?',
 				'choices': { '1': 100000, '2': 175000, '3': 225000 } },
 			{ 'body': 'Will your app need photo library access?',
 				'choices': { 'Yes': 5000, 'No': 0 } },
@@ -66,8 +78,10 @@ App.controller('MainCtrl', [
 		}
 
 		$scope.next = function(choice) {
+			var current_state = {"$scope.qCounter": $scope.qCounter}
+			history.pushState(current_state, null, $location.href)
 			$scope.user.answers[$scope.qCounter] = choice;
-			console.log($scope.user.answers);
+			//console.log($scope.user.answers);
 			if ($scope.qCounter < $scope.questions.length-1) {
 				if ($scope.qCounter > 1) {
 					$scope.evalEstimate($scope.user.answers);

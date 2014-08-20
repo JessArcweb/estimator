@@ -1,0 +1,12 @@
+<div class="col-md-12" ng-show="qCounter===0" ng-hide="qCounter!=0">
+  <div class="question">
+	<h4>How many platforms (iOS, Android, Mobile Web)?</h4>
+	<div class="question-separator"></div>
+	<ul class="choice-list">
+	  <li ng-repeat="(choice, value) in questions[qCounter].choices">
+	  <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+	  value="{{choice}}" name="answer"> <br/>
+	  </li>
+	</ul>
+  </div>
+</div>

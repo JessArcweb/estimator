@@ -1,0 +1,184 @@
+<div ng-controller="MainCtrl">
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron">
+        <h1>Arcweb Mobile App Estimator</h1>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row" ng-show="home" ng-hide="survey">
+        <p class="hook">
+        Have an idea for an app?<br/>
+        Want to get the ball rolling on development?<br/>
+        Take our survey so we can start a conversation.
+        </p>
+        <button class="btn btn-primary" ng-click="begin()">Get Started</button>
+      </div>
+      <div class="progress-number" ng-hide="home">{{qCounter}} / {{questions.length}}</div>
+      <div class="full-progress-bar" ng-hide="home">
+        <div class="progress-bar"></div>
+      </div>
+      <div id="current-question" class="row" ng-show="survey" ng-hide="finished">
+        <div class="col-md-12" ng-show="qCounter===0" ng-hide="qCounter!=0">
+          <div class="question">
+            <h4>How many platforms (iOS, Android, Mobile Web)?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===1" ng-hide="qCounter!=1">
+          <div class="question">
+            <h4>Will your app need photo library access?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===2" ng-hide="qCounter!=2">
+          <div class="question">
+            <h4>Will your app need GPS access?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===3" ng-hide="qCounter!=3">
+          <div class="question">
+            <h4>Will your app integrate a legacy system?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===4" ng-hide="qCounter!=4">
+          <div class="question">
+            <h4>What level of security will your app have?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===5" ng-hide="qCounter!=5">
+          <div class="question">
+            <h4>Will your app support credit card payment?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===6" ng-hide="qCounter!=6">
+          <div class="question">
+            <h4>Will your app integrate SalesForce CRM?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===7" ng-hide="qCounter!=7">
+          <div class="question">
+            <h4>Will your app function offline?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===8" ng-hide="qCounter!=8">
+          <div class="question">
+            <h4>How many ways will users be able to sign in (Twitter, Facebook, LinkedIn, Google)?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12" ng-show="qCounter===9" ng-hide="qCounter!=9">
+          <div class="question">
+            <h4>Will your app support an MVP or polished design?</h4>
+            <div class="question-separator"></div>
+            <ul class="choice-list">
+              <li ng-repeat="(choice, value) in questions[qCounter].choices">
+              <input type="submit" class="choice"  ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+              value="{{choice}}" name="answer"> <br/>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 pull-left" ng-show="qCounter > 2">
+          <h4 class="estimate">Your quote is: ${{user.estimate | number:0}}</h4>
+        </div>
+      </div>
+      <div class="row" ng-show="showForm">
+        <div class="userForm">
+          <form name="userForm" ng-submit="submitUser()" novalidate class="simple form">
+            <div class="row">
+              <div class="col-lg-5">
+                <input type="text" name="username" required class="form-control" ng-model="user.name" placeholder="Name">
+                <input type="email" name="email" required class="form-control" ng-model="user.email" placeholder="Email">
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="checkbox" name="report" ng-model="user.report" value=true> Send me the cost breakdown of my estimate<br />
+                <input type="checkbox" name="newsletter" ng-model="user.newsletter" value=true> Sign me up for the Arcweb Newsletter<br />
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <button type="submit" ng-disabled="userForm.username.$error.required || userForm.email.$error.email || userForm.email.$error.required" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row" ng-show="infoSubmitted">
+        <h2>Thanks for using our estimator</h2>
+        <div class="col-md-3">
+          <button class="btn btn-primary"><a class="mailer-link" href="mailto:info@arcweb.co">Contact Us</a></button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-primary"><a class="visit-link" href="http://arcweb.co">Visit Our Site</a></button>
+        </div>
+      </div>
+      <br />
+      <br />
+    </div>
+  </div>
+</div>

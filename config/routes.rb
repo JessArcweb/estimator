@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
 
+  get 'admin/index'
+  get 'admin/dump_csv'
+
+  resources :questions
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'survey#index'
-	get  '/survey' => 'survey#index'
+  get  '/survey' => 'survey#index'
 
-	scope "api" do
-		resources :users
-	end
+  scope "api" do
+      resources :users
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

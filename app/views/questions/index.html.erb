@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <h1>Questions</h1>
+
+    <div class="row">
+      <div class="col-md-6">
+        <% @questions.each do |q| %>
+          <strong>Question:</strong> <%= q.body %><br />
+          <% q.choices.each do |c| %>
+            <span><strong><%= c.option %>:</strong> <%= c.value %></span> 
+          <% end %>
+          <hr />
+        <% end %>
+      </div>
+
+      <div class="col-md-6 pull-right">
+        <h4>Add Question</h4>
+        <%= nested_form_for @new_question do |f| %> 
+          <%= f.label :body %>
+          <%= f.text_field :body, :class => "form-control" %>
+
+          <%= f.fields_for :choices do |choice_form| %>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <span>Option</span>
+                  <%= choice_form.text_field :option, :class => "form-control" %>
+                </div>
+
+                <div class="col-md-6 pull-right">
+                  <span>Value</span>
+                  <%= choice_form.text_field :value, :class => "form-control" %><br />
+                </div>
+
+                <%= choice_form.link_to_remove "Remove this choice" %>
+              </div>
+            </div>
+            <br />
+          <% end %>
+          <p><%= f.link_to_add "Add a choice", :choices %></p>
+
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

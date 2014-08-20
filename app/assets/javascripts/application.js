@@ -12,3 +12,4 @@
 //
 //= require app
 //= require_tree ./angular
+//= require jquery_nested_form
