@@ -1,11 +1,12 @@
 <div class="container">
   <div>
     <h1>Mobile App Estimator Admin Page</h1>
+    <hr />
     <div class="row">
-      <button id="dump-csv" class="btn btn-primary"><a href="/admin/dump_csv" method="GET" style="color: white; text-decoration: none;">Dump CSV</a></button>
-  </div>
-
-  <%= link_to 'Edit Questions', questions_path %>
+      <a href="/admin/dump_csv" method="GET">Dump CSV</a>
+      |
+      <%= link_to 'Edit Questions', questions_path %>
+    </div>
 
   </div>
 </div>

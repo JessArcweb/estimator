@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'admin/index'
+  get 'admin' => 'admin#index'
   get 'admin/dump_csv'
 
   post 'questions/update'
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'survey#index'
   get  '/survey/' => 'survey#index'
-  get '/:id' => 'survey#index'
 
   scope "api" do
       resources :users
