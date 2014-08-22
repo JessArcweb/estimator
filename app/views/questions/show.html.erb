@@ -1,12 +1,9 @@
-<div class="col-md-12" ng-show="qCounter==={{$index}}" ng-hide="qCounter!={{$index}}">
-  <div class="question">
-    <h4>{{question.body}}</h4>
-    <div class="question-separator"></div>
-    <ul class="choice-list">
-      <li ng-repeat="choice in question.choices">
-      <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
-      value="{{choice.option}}" name="answer"> <br/>
-      </li>
-    </ul>
-  </div>
+<div class="question">
+  <h4><%= @question.body %></h4>
+  <div class="question-separator"></div>
+  <ul class="choice-list">
+    <% @question.choices.each do |c| %>
+      <li><strong><%= c.option %>:</strong> <%= c.value %></li>
+  <% end %>
+  </ul>
 </div>
