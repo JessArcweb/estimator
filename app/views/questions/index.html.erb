@@ -1,16 +1,45 @@
+<script>
+  $(function() {
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+  $( "#sortable" ).sortable({
+      axis: 'y',
+      stop: function(event, ui) {
+          var data = $(this).sortable('serialize');
+          console.log(data);
+
+          $.ajax({
+              data: data,
+              type: 'POST',
+              url: '/questions/update/'
+          });
+      }
+  });
+  $( "#sortable" ).disableSelection();
+  });
+</script>
 <div class="container">
   <div class="row">
     <h1>Questions</h1>
 
     <div class="row">
       <div class="col-md-6">
-        <% @questions.each do |q| %>
-          <strong>Question:</strong> <%= q.body %><br />
-          <% q.choices.each do |c| %>
-            <span><strong><%= c.option %>:</strong> <%= c.value %></span> 
-          <% end %>
-          <hr />
-        <% end %>
+        <ul id="sortable">
+            <% @questions.each do |q| %>
+              <li id="q_<%= q.id %>"><strong>Question:</strong> <%= q.body %><br />
+              <% q.choices.each do |c| %>
+                <span><strong><%= c.option %>:</strong> <%= c.value %></span> 
+              <% end %>
+              <br />
+              <%= button_to "Delete", q, :method=>:delete, :class=>"btn btn-default" %>
+              <hr />
+              </li>
+            <% end %>
+        </ul>
       </div>
 
       <div class="col-md-6 pull-right">

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'admin/index'
   get 'admin/dump_csv'
 
+  post 'questions/update'
   resources :questions
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'survey#index'
-  get  '/survey' => 'survey#index'
+  get  '/survey/' => 'survey#index'
+  get '/:id' => 'survey#index'
 
   scope "api" do
       resources :users
