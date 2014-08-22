@@ -36,13 +36,12 @@
               <% end %>
               <br />
               <%= button_to "Delete", q, :method=>:delete, :class=>"btn btn-danger" %>
-              <hr />
               </li>
             <% end %>
         </ul>
       </div>
 
-      <div class="col-md-6 pull-right">
+      <div class="add-question col-md-6 pull-right">
         <h4>Add Question</h4>
         <%= nested_form_for @new_question do |f| %> 
           <%= f.label :body %>

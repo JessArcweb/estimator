@@ -3,7 +3,7 @@
   <div class="question-separator"></div>
   <ul class="choice-list">
     <% @question.choices.each do |c| %>
-      <li><strong><%= c.option %>:</strong> <%= c.value %></li>
+      <li><div class="list-div"><strong><%= c.option %>:</strong> <%= c.value %></div></li>
   <% end %>
   </ul>
 </div>

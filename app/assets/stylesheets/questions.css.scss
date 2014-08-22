@@ -7,7 +7,15 @@ ul {
 }
 
 li {
-	background: #80ABE4;
 	padding: 12px;
-	border-radius: 20px;
+	border-style: solid;
+	border-width: 2px;
+	//border-radius: 20px;
+	margin-bottom: 5px;
+}
+
+.add-question {
+	border-style: solid;
+	border-width: 2px;
+	padding: 10px;
 }
