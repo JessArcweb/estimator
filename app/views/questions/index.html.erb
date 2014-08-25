@@ -30,7 +30,7 @@
       <div class="col-md-6">
         <ul id="sortable">
             <% @questions.each do |q| %>
-              <li id="q_<%= q.id %>"><strong>Question:</strong> <%= q.body %><br />
+              <li class="q-item" id="q_<%= q.id %>"><strong>Question:</strong> <%= q.body %><br />
               <% q.choices.each do |c| %>
                 <span><strong><%= c.option %>:</strong> <%= c.value %></span> 
               <% end %>

@@ -49,8 +49,29 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def next
+    @current_question = Question.find(params[:id])
+    if @current_question.index < Question.all.count - 1
+      @next_question = Question.where(:index => @current_question.index + 1)
+    else
+      @next_question = nil
+    end
+
+    puts @next_question.inspect
+
+    respond_to do |format|
+      format.json { render :json => @next_question.as_json(:include => :choices) }
+    end
+    redirect_to ''
+  end
+
   def show
     @question = Question.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @question.as_json(:include => :choices) }
+    end
   end
 
   private

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   get 'admin/dump_csv'
 
+
   post 'questions/update'
+  get 'questions/next/:id' => 'questions#next'
   resources :questions
 
   # The priority is based upon order of creation: first created -> highest priority.

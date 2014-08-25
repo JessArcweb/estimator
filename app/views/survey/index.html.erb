@@ -26,7 +26,7 @@
                 <div class="question-separator"></div>
                 <ul class="choice-list">
                   <li ng-repeat="choice in question.choices">
-                  <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice)" \
+                  <input type="submit" class="choice" ng-model="user.answers[qCounter]" ng-click="next(choice, question.id)" \
                   value="{{choice.option}}" name="answer"> <br/>
                   </li>
                 </ul>

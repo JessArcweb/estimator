@@ -3,29 +3,6 @@
 App.controller('MainCtrl', [
 	'$scope', '$location', '$http', 'Users', function($scope, $location, $http, Users) {
 
-		//$scope.questions = [
-            //{ 'body': 'How many platforms (iOS, Android, Mobile Web)?',
-				//'choices': { '1': 100000, '2': 175000, '3': 225000 } },
-			//{ 'body': 'Will your app need photo library access?',
-				//'choices': { 'Yes': 5000, 'No': 0 } },
-			//{ 'body': 'Will your app need GPS access?',
-				//'choices': { 'Yes': 5000, 'No': 0 } },
-			//{ 'body': 'Will your app integrate a legacy system?',
-				//'choices': { 'Yes': 25000, 'No': 0 } },
-			//{ 'body': 'What level of security will your app have?',
-				//'choices': { 'None': 0, 'Bank-like': 25000 } },
-			//{ 'body': 'Will your app support credit card payment?',
-				//'choices': { 'Yes': 12000, 'No': 0 } },
-			//{ 'body': 'Will your app integrate SalesForce CRM?',
-				//'choices': { 'Yes': 25000, 'No': 0 } },
-			//{ 'body': 'Will your app function offline?',
-				//'choices': { 'Yes': 20000, 'No': 0 } },
-			//{ 'body': 'How many ways will users be able to sign in (Twitter, Facebook, LinkedIn, Google)?',
-				//'choices': { '1': 5000, '2': 10000, '3': 15000, '4': 20000, 'No sign in': 0 } },
-			//{ 'body': 'Will your app support an MVP or polished design?',
-				//'choices': { 'Polished': 50000, 'MVP': 25000 } }
-		//];
-
 		loadQuestions = function() {
 			$http.get('./questions.json').success(function(data) {
 				//console.log("hello");
@@ -65,7 +42,7 @@ App.controller('MainCtrl', [
 				$scope.home = false;
 				$scope.survey = true;
 				$scope.qCounter = 0;
-				$scope.question = $scope.questions[$scope.qCounter].body;
+				$scope.question = $scope.questions[0];
 				$scope.yourEstimate = 'Your quote is: $';
 				$scope.showProgress = true;
 		};
@@ -81,7 +58,19 @@ App.controller('MainCtrl', [
 			});
 		}
 
-		$scope.next = function(choice) {
+		swapQuestion = function(q_id) {
+			$http.get('/questions/next/' + q_id)
+				.success(function(data) {
+					console.log(data);
+				});
+		};
+
+		$scope.next = function(choice, q_id) {
+			$scope.user.answers.push(choice.option);
+			swapQuestion(q_id);
+		};
+
+		$scope.next1 = function(choice) {
 			//console.log(choice);
 			var option = choice.option;
 			var value = choice.value;
