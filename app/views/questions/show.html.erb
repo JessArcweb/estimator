@@ -1,9 +1,28 @@
-<div class="question">
-  <h4><%= @question.body %></h4>
-  <div class="question-separator"></div>
-  <ul class="choice-list">
-    <% @question.choices.each do |c| %>
-      <li><div class="list-div"><strong><%= c.option %>:</strong> <%= c.value %></div></li>
+<div class="col-md-6">
+  <%= nested_form_for @question do |f| %> 
+    <%= f.label :body %>
+    <%= f.text_field :body, :class => "form-control" %>
+
+    <%= f.fields_for :choices do |choice_form| %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <span>Option</span>
+            <%= choice_form.text_field :option, :class => "form-control" %>
+          </div>
+
+          <div class="col-md-6 pull-right">
+            <span>Value</span>
+            <%= choice_form.text_field :value, :class => "form-control" %><br />
+          </div>
+
+          <%= choice_form.link_to_remove "Remove this choice" %>
+        </div>
+      </div>
+      <br />
+    <% end %>
+    <p><%= f.link_to_add "Add a choice", :choices %></p>
+
+    <%= f.submit %>
   <% end %>
-  </ul>
 </div>

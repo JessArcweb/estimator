@@ -65,12 +65,12 @@ App.controller('MainCtrl', [
 				});
 		};
 
-		$scope.next = function(choice, q_id) {
-			$scope.user.answers.push(choice.option);
-			swapQuestion(q_id);
-		};
+		//$scope.next = function(choice, q_id) {
+			//$scope.user.answers.push(choice.option);
+			//swapQuestion(q_id);
+		//};
 
-		$scope.next1 = function(choice) {
+		$scope.next = function(choice) {
 			//console.log(choice);
 			var option = choice.option;
 			var value = choice.value;

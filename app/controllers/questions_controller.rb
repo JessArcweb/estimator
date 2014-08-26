@@ -25,13 +25,21 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    ids = params[:q]
-    ids.each_with_index do |id, index|
-      @q = Question.find(id)
-      @q.index = index
-      @q.save
-    end
+    #ids = params[:q]
+    #ids.each_with_index do |id, index|
+      #@q = Question.find(id)
+      #@q.index = index
+      #@q.save
+    #end
+    #
+    @question = Question.find(params[:id])
+    body = params[:question][:body]
+    choices_attributes = params[:question][:choices_attributes]
+    @question.update_attributes(:body => body, :choices_attributes => choices_attributes)
 
     #questions_by_id = Question.find(ids).index_by(&:id) # Gives you a hash indexed by ID
     #ids.collect {|id| questions_by_id[id] }

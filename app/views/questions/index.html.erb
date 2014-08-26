@@ -35,7 +35,8 @@
                 <span><strong><%= c.option %>:</strong> <%= c.value %></span> 
               <% end %>
               <br />
-              <%= button_to "Delete", q, :method=>:delete, :class=>"btn btn-danger" %>
+              <%= button_to "Delete", q, :method=>:delete, :class=>"btn btn-default" %>
+              <%= link_to "Edit", q %>
               </li>
             <% end %>
         </ul>
