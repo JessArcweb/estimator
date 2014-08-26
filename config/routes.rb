@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'admin/dump_csv'
 
   #get 'questions/next/:id' => 'questions#next'
+  post 'questions/update_order'
   post 'questions/update'
   resources :questions
 

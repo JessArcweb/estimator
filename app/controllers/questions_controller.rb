@@ -28,6 +28,15 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  def update_order
+    ids = params[:q]
+    ids.each_with_index do |id, index|
+      @q = Question.find(id)
+      @q.index = index
+      @q.save
+    end
+  end
+
   def update
     #ids = params[:q]
     #ids.each_with_index do |id, index|
