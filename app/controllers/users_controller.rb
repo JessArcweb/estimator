@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @estimate = params[:estimate]
 		if @user.save and params[:report] == true
           NotifyMailer.notify(@user).deliver
-          #NotifyMailer.report(@user).deliver
+          NotifyMailer.report(@user).deliver
 		  redirect_to root_url
 		else
 			redirect_to "#"
