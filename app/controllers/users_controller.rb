@@ -11,13 +11,22 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
         @estimate = params[:estimate]
+        if @user.save and params[:subscribe] == true
+          uri = URI.parse("http://arcweb.us5.list-manage1.com/subscribe/post?u=8515671b9bcd64938e083a5cf&amp;id=bde3b116b4")
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          request = Net::HTTP::Post.new(uri.request_uri)
+          request.set_form_data({"EMAIL" => "#{@user.email}"})
+
+          response = http.request(request)
+        end
 		if @user.save and params[:report] == true
           NotifyMailer.notify(@user).deliver
           NotifyMailer.report(@user).deliver
 		  redirect_to root_url
-		else
-			redirect_to "#"
 		end
+
+		redirect_to "#"
 	end
 
 	private
