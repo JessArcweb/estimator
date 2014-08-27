@@ -10,15 +10,16 @@
     <h2>Estimated Cost: <%= number_to_currency(@estimate) %></h2>
 
     <span><strong>Cost Breakdown</strong></span><br />
-    <div class="col-md-6">
-      <ul>
-        <% @user.answers.each_with_index do |a, i| %>
-          <li><span class="question"><%= @questions[i]["body"] %>:</span>
-          <span class="answer"><strong>  <%= a %></strong></span>
-          <span class="answer-value"><%= number_to_currency(@questions[i]["choices"][a], :precision => 0) %></span></li>
-          <br />
-        <% end %>
-      </ul>
+    <div class="row">
+      <div class="col-md-4">
+        <ul>
+          <% @user.answers.each_with_index do |a, i| %>
+            <li><span class="question"><%= @questions[i][:body] %>:</span>
+            <span class="answer"><strong>  <%= a %></strong></span>
+            <span class="answer-value"><%= number_to_currency(@questions[i].choices.find_by_option(a).value, :precision => 0) %></span></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </body>
