@@ -10,7 +10,6 @@ class NotifyMailer < ActionMailer::Base
     @user = user
     @questions = Question.all.order(:index)
 
-    puts @user
     mail :to => @user.email, :from => "dashboard@arcwebtech.com", :subject => "Thanks for using the estimator"
   end
 end
